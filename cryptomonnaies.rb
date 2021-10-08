@@ -11,27 +11,23 @@ my_hash = devises.zip(prix).to_h
 
 
 # Question: La ou les crypto qui ont la plus grosse valeur.
-puts '-' * 50
 puts "La crypto avec la plus grosse valeur est"
 p my_hash.max_by{|key, val| val.to_f}
 
 
 
 # Question: La ou les crypto qui ont la plus petite valeur.
-puts '-' * 50
 puts "La crytpo avec la plus petite valeur est"
 p my_hash.min_by{|key, val| val.to_f}
 
 
 
 # Question: Les devises dont le cours est inférieur à 6000
-puts '-' * 50
 puts "Les cryptos dont le cours est inferieur à 6000 est"
 list_lower_than_6000 =  my_hash.select{|key,val| val.to_f < 6000}
 p list_lower_than_6000
 
 
 # Question: La devise la plus chère parmi celles dont le cours est inférieur à 6000
-puts '-' * 50
 puts "La devise la plus chère parmi celles dont le cours est inférieur à 6000 est"
 p list_lower_than_6000.max_by{|key, val| val.to_f}
