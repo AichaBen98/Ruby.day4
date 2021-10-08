@@ -6,15 +6,13 @@ puts journalists.size #--> 381
 
 
 # Question: Quel est le handle le plus court de cette liste?
-court_handle = journalists.min_by{|handle| handle.length}
-puts '-' * 50
+short_handle = journalists.min_by{|handle| handle.length}
 puts "Le plus court handle de la liste: "
-puts court_handle #--> @min
+puts short_handle #--> @min
 
 # Question: Combien y-a-t'il de handle contenant 5 caractères ?
 # (le @ ne compte pas pour un caractère)
 handle_cinq_caracteres = journalists.select{|handle| handle.tr('@','').length == 5}.size
-puts '-' * 50
 puts "Nombre de handle contenant 5 caractères: "
 puts handle_cinq_caracteres #--> 6
 
@@ -22,36 +20,30 @@ puts handle_cinq_caracteres #--> 6
 # Question: Combien commencent par une majuscule ? 
 # (première lettre juste après le @)
 handle_debut_majuscule = journalists.select{|handle| handle.tr('@','')[0].match(/[A-Z]/)}.size
-puts '-' * 50
 puts "Nombre de hamdle commencant par une majuscule: "
 puts handle_debut_majuscule #--> 209
 
 
 # Question: Trie la liste de handle par ordre alphabétique.
-puts '-' * 50
 puts "Handle listés par ordre alphabétique"
 puts journalists.sort_by{|handle| handle.downcase} #--> list
 
 
 # Question: Trie la liste de handle par taille des handle
 # (les plus petits en premiers, les plus grands après)
-puts '-' * 50
 puts "Liste des handle par ordre décroissant"
 puts journalists.sort_by{|handle| handle.length} #--> list
 
 
 # Question: Quelle est la position dans l'array de la personne @epense
-puts '-' * 50
 puts "Ordre de @epenser dans la liste est: "
 puts journalists.index('@epenser') #--> 373
 
 
 # Question: Donne-moi une répartiton des handle par taille de ces derniers
-puts '-' * 50
 list_size = journalists.map{|handle| handle.length}.uniq.sort
 
 list_size.each do |size|
-  puts '_' * 20
   puts "Liste des handle avec #{size} caractères: "
   each_result =  journalists.select{|handle| handle.length == size}
   puts each_result
